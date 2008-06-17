@@ -1,4 +1,4 @@
-#Get up and running with the ZipMyURL PHP API.
+#summary Get up and running with the ZipMyURL PHP API.
 
 = Introduction =
 Quick Start Guide (PHP)
