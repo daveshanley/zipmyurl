@@ -3,7 +3,54 @@
 = Introduction =
 Quick Start Guide (PHP)
 
-
 = Details =
 
-Coming soon.
+N.B. This PHP code is for PHP 5+ (it won't work on PHP 4). It's very easy to use and does all the hard work for you. Here is an example of using it!
+
+{{{
+// create a new ZipMyURL Object 
+$zmu = new ZipMyURL();
+	
+// add some URL's (you can add just one, or as many as you like!) 
+$zmu->addURL("http://www.nytimes.com/library/national/science/011800sci-space-nanobes.html");
+$zmu->addURL("http://gizmodo.com/5016550/rfid-robotic-chair-follows-you-around-for-constant-seating");
+	
+//if you want to use your own keywords / tags then add them in, (optional) 
+$zmu->addKeyword("technology");
+$zmu->addKeyword("interesting");
+$zmu->addKeyword("robotics");
+$zmu->addKeyword("rfid");
+	
+// if you have an account with ZipMyURL and you want to automatically publish this zipped URL
+//  directly to your account and any activated services you have on that account, then you can 
+//  add in your username and password below. If you do enter your account details the connection will be made over SSL to keep it secure.
+//
+//	(if you do enter your username and password, your connection will be securely made over SSL)
+$zmu->setUserName("my@username.here"); // optional
+$zmu->setUserPassword("mypassword");   // optional 
+	
+// some other optional properties include: 
+// $zmu->setCustomURL("myurl"); // this will set your URL to be http://zipmyurl.com/myurl [providing it's not already been used!]
+// $zmu->setZipPassword("secret") // add a password to your zipped URL. [automatically marks it private]
+// $zmu->setZipPrivate(true) // make the zip private
+// $zmu->setZipRandom(true) // have the server select a random URL (if zipping more than one URL at a time)
+	
+// now lets create our zip!
+if(!$zmu->zip()) {
+
+	// whoops something went wrong.
+	print("error: " . $zmu->getError());
+
+} else {
+
+	// Your zip was created! 
+	print("zipped URL: " . $zmu->getZippedURL() . "\n");
+	print("Original Size: " . $zmu->getZippedURLOriginalSize() . "\n");
+	print("Zipped Size: " . $zmu->getZippedURLCompressedSize() . "\n");
+
+}
+}}}
+
+And thats all there is to it!
+
+- Dave <dave@quobix.com>
