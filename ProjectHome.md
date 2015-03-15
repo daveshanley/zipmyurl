@@ -1,0 +1,1 @@
+Use ZipMyURL in your own applications. Compress multiple URL's, add passwords, publish to Twitter & Del.icio.us automatically. Use the web service or download one the our API's
